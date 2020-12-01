@@ -18,6 +18,10 @@ var app = new Vue({
     });
   },
 
+// Bonus:
+// Creare una select con i seguenti generi: pop, rock, metal e jazz.
+// In base a cosa scegliamo nella select vedremo solo i corrispondenti cd.
+
   methods: {
     genreSelection: function() {
          this.playlist.forEach(album => {
@@ -30,14 +34,7 @@ var app = new Vue({
             else {
              return album.show = false;
            }
-
-         });
- }
-
-
-
-
-  }
-
-
+        });
+     }
+   }
 });

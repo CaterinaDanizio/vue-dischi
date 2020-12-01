@@ -25,8 +25,18 @@
       <header>
         <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/image-gallery-spotify-logo-21.png" alt="">
       </header>
+      <div class="selection">
+        <h3>Seleziona il genere</h3>
+        <select class="genere" name="" v-model="userSelection" @click="genreSelection">
+          <option value="All">All</option>
+          <option value="Rock">Rock</option>
+          <option value="Pop">Pop</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Metal">Metal</option>
+        </select>
+      </div>
       <div class="playlist">
-        <div class="album" v-for="(album, index) in playlist">
+        <div class="album" v-for="(album, index) in playlist" v-if="album.show">
           <div class="info">
             <img :src="album.poster" alt="">
             <h2>{{ album.title }}</h2>
