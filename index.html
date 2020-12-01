@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue dischi</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- AXIOS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+
+    <!-- RESPONSIVE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONTAWASOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/image-gallery-spotify-logo-21.png" alt="">
+      </header>
+      <div class="playlist">
+        <div class="album" v-for="(album, index) in playlist">
+          <div class="info">
+            <img :src="album.poster" alt="">
+            <h2>{{ album.title }}</h2>
+            <h4>{{ album.author }}</h4>
+            <h4>{{ album.year }}</h4>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/script.js">
+    </script>
+
+  </body>
+</html>
