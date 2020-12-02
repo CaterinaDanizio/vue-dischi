@@ -8,15 +8,19 @@ var app = new Vue({
   el: '#app',
   data: {
     playlist: [],
-    userSelection: ""
+    userSelection: "All"
   },
 
   mounted: function () {
       axios.get(collection).then(risposta => {
-      let album = risposta.data.response;
-      this.playlist = album;
-    });
-  },
+        let album = risposta.data.response;
+        album = album.map(item => {
+        item.show = true;
+        return item
+      })
+        this.playlist = album;
+      })
+    },
 
 // Bonus:
 // Creare una select con i seguenti generi: pop, rock, metal e jazz.
@@ -25,10 +29,10 @@ var app = new Vue({
   methods: {
     genreSelection: function() {
          this.playlist.forEach(album => {
-           if (album.genre.toLowerCase().includes(this.userSelection.toLowerCase())) {
+           if(album.genre.toLowerCase().includes(this.userSelection.toLowerCase())) {
              return album.show = true;
            }
-           else if (this.userSelection == "All"){
+           else if (this.userSelection === "All"){
              return album.show = true;
            }
             else {
